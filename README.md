@@ -2,14 +2,12 @@
 
 This lab shows how Java and Python programs can connect to MySQL and Microsoft SQL Server.
 
-**Make sure your computer is setup to run Docker by following these [setup instructions](../setup).**
+**Make sure your computer is setup to run Docker by following these [setup instructions](https://github.com/rlawrenc/cosc_304/blob/main/labs/setup).**
 
 ### Setup MySQL and SQL Server Docker Container
 
- - Create a directory `cosc304_lab6`.
- - Download the `docker-compose.yml` file into the `cosc304_lab6` directory. 
- - Create a folder `ddl` in `cosc304_lab6` directory. Download the contents of the `ddl` folder into the `cosc304_lab6\ddl` folder.
- - Open a command shell either directly on your machine or using VSCode. Make sure your current directory is `cosc304_lab6`.
+ - All of the files that you need are in the directory. 
+ - Open a command shell either directly on your machine or using VSCode. Make sure your current directory is the directory containing `docker-compose.yml`.
  - Run the command `docker-compose up -d`
  - If everything is successful, the MySQL database will start on port 3306. If there is a port conflict, change the port to 3307 in the `docker-compose.yml` file by modifying the line below `ports:` to `'3307:3306'`. The connection URL is then `localhost:3307/testuser`.
  - Your database is `mydb` or `testuser`. There are other databases also created such as `workson`. Do NOT use the sample `university` database from lab 2.
@@ -17,14 +15,14 @@ This lab shows how Java and Python programs can connect to MySQL and Microsoft S
 
 ## Part #1: MySQL
 
-Download [the sample Java program](code/TestJDBCMySQL.java) or [sample Python program](code/PythonQueryExample.py) that connects to a WorksOn database hosted by MySQL. 
+There is [a sample Java program](code/TestJDBCMySQL.java) or [sample Python program](code/PythonQueryExample.py) that connects to a WorksOn database hosted by MySQL. 
 The user id and password information is in the `docker-compose.yml` file.
 
 ### Java Setup
 
-1. Make sure the [MySQL JDBC driver](code/mysql-connector-java-8.0.27.jar) is in your classpath. This can be done in VSCode in the `Java Project` tab.
+1. Make sure the [MySQL JDBC driver](code/mysql-connector-j-9.5.0.jar) is in your classpath. This can be done in VSCode in the `Java Project` tab.
 
-2. [Download the sample file](code/TestJDBCMySQL.java).  Save this file in your `cosc304_lab6` folder that you just created. 
+2. Use [the sample file](code/TestJDBCMySQL.java).
 
 3. These are the modifications you must make to get the program working:
 
@@ -38,14 +36,14 @@ Change Line 7 to:	String pw = "put your password here";
 
 1. Install MySQL connector library in a terminal using the command: `pip install mysql-connector-python`  You may need to restart VSCode for it to see the library after it is installed.
 
-2. [Download the sample Python file](code/PythonQueryExample.py) and setup in your Python environment.
+2. Use [the sample Python file](code/PythonQueryExample.py) and setup in your Python environment.
 
 3. These are the modifications you must make to get the program working:
 
 ```
 Change Line 3 to add the password for testuser account:
 
- cnx = mysql.connector.connect(user='testuser', <b>password='todo'</b>, host='localhost', database='workson', ssl_disabled='True') a
+ cnx = mysql.connector.connect(user='testuser', <b>password='todo'</b>, host='localhost', database='workson', ssl_disabled='True') 
 ```
 
 The result of the program is this:
@@ -99,11 +97,11 @@ Supervisor: R. Davis
 
 ### Java Setup
 
-1. Make sure the [Microsoft SQL Server JDBC driver](code/mssql-jdbc-11.2.0.jre11.jar) is in your classpath. This can be done in VSCode in the `Java Project` tab.
+1. Make sure the [Microsoft SQL Server JDBC driver](code/mssql-jdbc-13.2.1.jre11.jar) is in your classpath. This can be done in VSCode in the `Java Project` tab.
 
 2. If the workson database was not automatically created, you must connect to SQL Server using SQuirreL or command line to create the workson database. 
 
-3. [Download the sample file](code/TestJdbcSqlServer.java).  Save this file in your `cosc304_lab6` folder that you just created. 
+3. Use [the sample file](code/TestJdbcSqlServer.java).  
 
 4. These are the modifications you must make to get the program working:
 
@@ -117,7 +115,7 @@ Change Line 7 to:	String pw = "put password here";
 
 1. Install SQL Server pyodbc connector by following [these directions](https://docs.microsoft.com/en-us/sql/connect/python/python-driver-for-sql-server).
 
-2. [Download the sample Python file](code/PythonSQLServer.py) and setup in your Python environment.
+2. Use [the sample Python file](code/PythonSQLServer.py) and setup in your Python environment.
 
 3. These are the modifications you must make to get the program working:
 
