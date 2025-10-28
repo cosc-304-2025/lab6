@@ -14,7 +14,7 @@ OrderedProduct (<i><u>OrderId</u></i>, <i><u>ProductId</u></i>, Quantity, Price)
 
 ## Initial Steps
 
-Download the starter code [Python file](OrderDB.py) and the test file [Python file](TestOrderDB.py). There is also a [DDL script](order.ddl) to create the database.
+The starter code is a [Python file](OrderDB.py) and the test file [Python file](TestOrderDB.py). There is also a [DDL script](order.ddl) to create the database.
 
 Use VSCode to edit the code files. You will need to install the Python extension to execute.
 
